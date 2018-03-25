@@ -12,9 +12,15 @@
     /*#aaa{*/
         /*color: blue;*/
     /*}*/
-    .f:hover{
+    a#a:hover{color: blueviolet}
+    a#b:link{color: brown}
+    a#c:visited{ color: blue }
+    a#d:active{color: yellow}
+    .f:hover,div:hover>span{
     color: aquamarine;
     }
+    div>span{color: yellow}
+
     #aa::first-letter{
         color: brown;
     }
@@ -24,9 +30,11 @@
     <p>ssss</p>
     <div class="f">fffff</div>
     <div class="f">
-        <span>
-            jfjfjf
-        </span>
+        <span>jfjfjf</span>
+
+        <p>
+            <span>jdjdjdj</span>
+        </p>
     </div>
     <ul>
         <li>sssss</li>
@@ -36,5 +44,12 @@
         <li>dcfds</li>
         <li>sdvsd</li>
     </ul>
+
+    <a id="a" href="test.html">链接</a>
+    <a id="b" href="test.html">链接</a>
+    <a id="c" href="test.html">链接</a>
+    <a id="d" href="test.html">链接</a>
+
+
 </body>
 </html>
