@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+
+</ul>
+<button id="btn">添加</button>
+<script>
+    var oBtn=document.getElementById("btn");
+    var oUL=document.querySelector(".ul");
+
+    oBtn.onclick=function () {
+    var oNew=document.createElement("li");
+    oNew.innerText='555';
+    oUL.appendChild(oNew);
+
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="内容" id="text">
+    <input type="date" id="date">
+    <input class="add" type="button" value="添加">
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>内容</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="body">
+            <tr>
+                <td>1</td>
+                <td>上课</td>
+                <td>2016-07-23</td>
+                <td><button class="delete">删除</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var bAdd=document.querySelector(".add");
+        var bDelete=document.querySelector(".delete");
+        var body=document.getElementById("body");
+        var thisHtml="";
+        bAdd.onclick=function () {
+            var thisNum=document.querySelectorAll("tbody tr").length;
+            var thisText=document.getElementById("text").value;
+            var thisDate=document.getElementById("date").value;
+            thisHtml='<tr><td>'+(thisNum+1)+'</td><td>'+thisText+'</td><td>'+thisDate+'</td><td><button class="delete">删除</button></td>';
+            body.innerHTML+=thisHtml;
+        }
+        body.onclick=function (e) {
+            if(e.target.className=="delete"){
+                e.target.parentElement.parentElement.remove();
+            }
+        }
+
+    </script>
+</body>
+</html>

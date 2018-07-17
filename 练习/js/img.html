@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       .body{
+           border: 2px #999999 solid;
+           height: 500px;
+           width: 800px;
+
+       }
+        .none{
+            display:none;
+        }
+        ul{
+            list-style: none;
+        }
+        .top img{
+            height: 250px;
+            width: 450px;
+
+        }
+        .top{
+            height: 300px;
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 2px #999999 solid;
+
+        }
+        .bottom{
+            display: flex;
+            justify-content: space-around;
+        }
+        .bottom li{
+            border: 2px #999999 solid;
+            display: flex;
+            justify-content: center;
+        }
+        .bottom img{
+            height: 100px;
+            width: 100px;
+        }
+        .back,.next{
+            margin-top: 50px;
+        }
+        .top img{
+            display: none;
+        }
+       .top .active{
+           display: block;
+       }
+    </style>
+</head>
+<body>
+<div class="body">
+    <div class="top">
+       <div class="back">&lt</div>
+            <img class="active" src="https://ss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=df9096844d34970a5873162fa5cbd1c0/d043ad4bd11373f0f5413134a80f4bfbfbed041a.jpg" alt="">
+            <img src="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=afa723ed74f0f736c7fe4a013a54b382/f603918fa0ec08fa55fe063555ee3d6d54fbdaa1.jpg" alt="">
+            <img src="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=864982b84ea7d933a0a8e2739d49d194/6f061d950a7b0208f20e874d6ed9f2d3562cc853.jpg" alt="">
+            <img src="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=ce18bf50dbca7bcb627bc12f8e086b3f/a2cc7cd98d1001e98517929cb40e7bec54e7977e.jpg" alt="">
+        <div class="next">&gt</div>
+    </div>
+    
+    <div >
+        <ul class="bottom">
+            <li><img src="https://ss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=df9096844d34970a5873162fa5cbd1c0/d043ad4bd11373f0f5413134a80f4bfbfbed041a.jpg" alt=""></li>
+            <li><img src="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=afa723ed74f0f736c7fe4a013a54b382/f603918fa0ec08fa55fe063555ee3d6d54fbdaa1.jpg" alt=""></li>
+            <li><img src="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=864982b84ea7d933a0a8e2739d49d194/6f061d950a7b0208f20e874d6ed9f2d3562cc853.jpg" alt=""></li>
+            <li><img src="https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=ce18bf50dbca7bcb627bc12f8e086b3f/a2cc7cd98d1001e98517929cb40e7bec54e7977e.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+       var aImg=document.getElementsByClassName("top")[0];
+       var oImg=aImg.getElementsByTagName("img");
+       var aIcon=document.getElementsByClassName("bottom")[0];
+       var oIcon=aIcon.getElementsByTagName("li");
+       var next=document.getElementsByClassName("next")[0];
+       var back=document.getElementsByClassName("back")[0];
+       var nowIndex=0;
+       for(var j=0;j<oIcon.length;j++){
+           oIcon[j].index=j;
+           oIcon[j].onmouseover=function () {
+               change(this.index)
+           }
+
+           function change(index){
+               nowIndex=index;
+               for (var i=0;i<oIcon.length;i++){
+
+                   oImg[i].className="";
+               }
+
+               oImg[index].className="active";
+           }
+       }
+       next.onclick= function () {
+           ++nowIndex;
+           if(nowIndex>3){
+               nowIndex=0;
+           }
+           change(nowIndex);
+       }
+       back.onclick= function () {
+           --nowIndex;
+           if(nowIndex<0){
+               nowIndex=3;
+           }
+           change(nowIndex);
+       }
+    </script>
+
+</div>
+</body>
+</html>
