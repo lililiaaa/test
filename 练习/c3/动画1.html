@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .fu{
+            border: 2px dashed black;
+            height: 300px;
+            width: 300px;
+            perspective: 1000px;
+        }
+        .zi{
+            height: 300px;
+            width: 300px;
+            background-color: #00b262;
+            position: absolute;
+            transform-style: preserve-3d ;
+            z-index: 10;
+            transition: all 1s ease;
+        }
+        .zi:hover{
+            transform: rotatey(180deg);
+
+            z-index: -10;
+        }
+        .zizi{
+            position: absolute;
+            height: 300px;
+            width: 300px;
+            background-color: #ffbcd6;
+            /*transition: all 1s ease;*/
+            transform: rotatey(180deg);
+            z-index: 5;
+            margin-top: -20px;
+        }
+
+    </style>
+</head>
+<body>
+ <div class="fu">
+     <div class="zi">
+         李振婷
+         <div class="zizi">
+             啊哈哈哈
+         </div>
+     </div>
+
+ </div>
+</body>
+</html>

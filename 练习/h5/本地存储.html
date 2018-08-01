@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+   setCookie("name","ming",1);
+    setCookie("age","ming",1);
+   console.log(getCookie("name"))
+    delCookie("age")
+   delCookie("num")
+    function setCookie(key,value,expires) {
+        var timer= new Date();
+        timer.setDate(timer.getDate()+expires)
+        document.cookie=key+"="+value+";expires="+timer.toUTCString();
+    }
+    function getCookie(key) {
+        var cookie=document.cookie;
+        var arr=document.cookie.split(";")
+        for(var i=0;i<arr.length;i++){
+            if(arr[i].split("=")[0].trim()==key){
+                return arr[i].split("=")[1].trim()
+            }
+        }
+    }
+    function delCookie(key) {
+            setCookie(key,"",-1)
+        }
+</script>
+</body>
+</html>

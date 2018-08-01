@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        localStorage.setItem("name","xiaoming");//关闭浏览器后存在
+        localStorage.age="20";
+        localStorage.removeItem("age")
+//        localStorage.clear();//全删
+        console.log(localStorage.getItem("name"));
+        sessionStorage.school="linda"//关闭浏览器后没有
+    </script>
+</body>
+</html>

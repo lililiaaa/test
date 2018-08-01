@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th,td{
+            width: 200px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="aa">张三</td>
+
+
+            </tr>
+        </tbody>
+    </table>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $("td").on("click",function () {
+            var input=$("<input type='text'>");
+            input.val(this.innerText);
+            $(this).empty();
+            $(this).append(input);
+            input.focus();
+        })
+        $("tr").on("blur","input",function () {
+
+
+                var father=$(this).parent("td");
+                father.text($(this).val());
+                $(this).remove();
+
+        })
+    </script>
+</body>
+</html>

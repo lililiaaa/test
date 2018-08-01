@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        ul{
+            border-radius: 50%;
+            border: 2px solid black;
+            height: 296px;
+            width: 296px;
+            display: flex;
+        }
+        .div{
+            height: 300px;
+            width: 300px;
+            border: 2px dashed black;
+        }
+        li{
+            position: absolute;
+            left: 682px;
+            border-left: 2px solid black;
+            height: 8px;
+            margin-right:5px ;
+            transform-origin: 0 148px;
+        }
+        li:nth-child(5n){
+            height: 15px;
+        }
+        .shi{
+            height: 40px;
+            width: 8px;
+            background-color: #ffbdfd;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+
+            transform-origin: 0 40px;
+        }
+        .feng{
+            height:70px;
+            width:5px ;
+            background-color: #5eb2ab;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+
+            transform-origin: 0 70px;
+        }
+        .miao{
+            height:110px;
+            width:2px ;
+            background-color: #9cb299;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+
+            transform-origin: 0 110px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div>
+            <div class="shi"></div>
+            <div class="feng"></div>
+            <div class="miao"></div>
+        </div>
+        <script>
+            var oLi=document.querySelectorAll("li");
+            var oShi=document.querySelector(".shi");
+            var oFeng=document.querySelector(".feng");
+            var oMiao=document.querySelector(".miao");
+            var k=0;
+            run();
+            for(var i=0;i<oLi.length;i++){
+
+                k=k+6;
+                oLi[i].style.transform="rotate("+k+"deg)";
+            }
+           function run() {
+               var time=new Date();
+               var miao=time.getSeconds();
+               var feng=time.getMinutes()+miao/60;
+               var shi=time.getHours()+feng/60;
+               oShi.style.transform="rotate("+shi*30+"deg)";
+               oFeng.style.transform="rotate("+feng*6+"deg)";
+               oMiao.style.transform="rotate("+miao*6+"deg)";
+           }
+            setInterval(function () {
+                run();
+            },1000)
+
+        </script>
+    </div>
+</body>
+</html>
