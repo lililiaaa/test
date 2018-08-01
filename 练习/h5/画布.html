@@ -13,12 +13,25 @@
     <canvas id="can" height="300px" width="300px" ></canvas>
     <script>
         var c=document.getElementById("can");
-        var cxt=c.getContext("2d");
-        cxt.moveTo(10,10);
-        cxt.lineTo(150,50);
-        cxt.lineTo(10,50);
-        cxt.strokeStyle="red"
-        cxt.stroke();
+        var pen=c.getContext("2d");
+        pen.lineWidth = 3;
+        pen.strokeStyle="white"
+        c.onmousedown = function(e){
+            var x = e.clientX - c.offsetLeft;
+            var y = e.clientY - c.offsetTop;
+            pen.moveTo(x,y);
+            c.onmousemove = function(e){
+                var x = e.clientX - c.offsetLeft;
+                var y = e.clientY - c.offsetTop;
+                pen.lineTo(x,y);
+                pen.stroke();
+            };
+            c.onmouseup = function(e){
+                c.onmousemove = null;
+            };
+        };
+
+
     </script>
 </body>
 </html>
