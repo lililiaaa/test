@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let prom=new Promise(function (resolved,rejected) {
+        $.get("a.json",function (res) {
+            console.log(res)
+            resolved();
+        })
+    }).then(function () {
+        $.get("b.json",function (res) {
+            console.log(res)
+        })//成功进入
+    },function () {
+        console.log("error")//失败进入
+    })
+
+    let prom=function (url,callback) {
+        return new Promise(function (resolved,rejected) {
+            $.get("a.json",function (res) {
+                console.log(res)
+                resolved();
+            })
+        })
+    }
+    prom("a.json").then(function (res) {
+        console.log(res);
+        return prom("b.json",function () {
+          console.log("aaaa")
+        })
+    }).then(function (res) {
+        console.log(res)
+        return prom("c.json")
+    })
+
+</script>
+</body>
+</html>
