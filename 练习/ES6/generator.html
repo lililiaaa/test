@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    function* helloworldGenerator() {
+//        yield 'hello';
+//        yield 'world';
+//        return 'end';
+//    }
+//    var hw=helloworldGenerator();
+//    console.log(hw.next())
+//    console.log(hw.next())
+//    console.log(hw.next())
+
+function run(url) {
+    $.get(url,function (res) {
+        console.log(res)
+    })
+}
+function* foo(x) {
+        yield run("a.json");
+        yield run("b.json");
+        return run("c.json");
+    }
+    var hw=foo();
+    console.log(hw.next())
+    console.log(hw.next())
+    console.log(hw.next())
+</script>
+</body>
+</html>
