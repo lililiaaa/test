@@ -1,0 +1,11 @@
+.div{
+background: wheat;
+}
+.img{
+    background: url("../img/retext.jpg");
+    height: 300px;
+    width: 300px;
+}
+.aaa{
+    font-size: 20px;
+}
