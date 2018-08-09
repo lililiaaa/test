@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--<div v-if="isIf">-->
+            <!--isIf-->
+        <!--</div>-->
+        <!--<div v-else-if="elseIf">-->
+            <!--hhh-->
+        <!--</div>-->
+        <!--<div v-else>-->
+            <!--hhhjj-->
+        <!--</div>-->
+        <!--<div v-show="isShow">-->
+            <!--hhhjj-->
+        <!--</div>-->
+        <!--<ul>-->
+            <!--&lt;!&ndash;<li v-for="(items,key,index) in obj">&ndash;&gt;-->
+                <!--&lt;!&ndash;{{index}}&#45;&#45;{{key}}:{{items}}&ndash;&gt;-->
+            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+            <!--<li v-for="(items,index) in objArr">-->
+                <!--{{items.name}}&#45;&#45;{{items.age}}&#45;&#45;{{items.school}}-->
+                <!--<span v-for="item in items">-->
+                    <!--{{item}}-->
+                <!--</span>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <div>{{sortObj}}</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+//                isIf:true,
+//                elseIf:true,
+//                isShow:true
+//                arr:[1,2,3,4,5,6],
+//                obj:{
+//                    name:"lilili",
+//                    age:"10",
+//                    school:"linda"
+//                },
+                objArr:[{
+                    name:"li",
+                    age:"10",
+                    school:"linda"
+                },{
+                    name:"lili",
+                    age:"1",
+                    school:"linda"
+                },{
+                    name:"lililiaaa",
+                    age:"100",
+                    school:"linda"
+                }]
+            },
+            computed:{
+                sortObj() {
+                    this.objArr.sort(function (a,b) {
+                        return a.age-b.age
+                        })
+                }
+            }
+//            obj.objArr.sort(function () {
+//            return a.age-b.age
+//        })
+        })
+    </script>
+</body>
+</html>

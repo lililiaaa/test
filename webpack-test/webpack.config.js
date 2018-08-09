@@ -5,6 +5,7 @@ const glob=require('glob');
 const PurifyCSSPlugin=require('purifycss-webpack')
 const webpack=require("webpack")
 const entry=require('./webpack_config/entry_webpack.js')
+var CopyWebpackPlugin=require("copy-webpack-plugin");
 module.exports={
     entry:entry,
     plugins:[
@@ -20,7 +21,14 @@ module.exports={
         new PurifyCSSPlugin({
             paths:glob.sync(path.join(__dirname,"./src/*.html"))
         }),
-        new webpack.BannerPlugin('婷婷所有')
+        new webpack.BannerPlugin('婷婷所有'),
+        new webpack.ProvidePlugin({
+            $:'jQuery'
+        }),
+        new CopyWebpackPlugin([{
+            from:__dirname+'/src/public',
+            to:"./public"
+        }])
     ],
     output:{
         filename:'bundle.js',

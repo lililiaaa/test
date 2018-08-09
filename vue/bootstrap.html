@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_612764_g0kcxjistuo.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .shuru{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .header{
+            display: flex;
+            justify-content: center;
+            height: 60px;
+            border-bottom: 2px solid gainsboro;
+            width: 100%;
+            align-items: center;
+        }
+        .form-inline{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .form-control-plaintext{
+            width: 65px;
+        }
+        .iconfont{
+            color: white;
+        }
+        .hh{
+            text-align: center;
+        }
+        .container .body table .active{
+            background-color: #00A862;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h2>todolist</h2>
+</div>
+<div class="container">
+
+    <div class="body" id="table">
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">请输入关键字</label>
+                <input type="text" class="form-control" id="inputPassword2" placeholder="请输入关键字"  v-model="input">
+            </div>
+            <button type="button"  class="btn btn-primary mb-2" @click="click" >搜索</button>
+        </form>
+        <div class="shuru">
+            <form class="form-inline">
+                <div class="form-group mb-2">
+                    <label for="staticEmail2" class="sr-only">Email</label>
+                    <input type="text"  readonly class="form-control-plaintext" id="staticEmail2" value="商品名称" >
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">请输入名称</label>
+                    <input type="text" v-model="newShop.name" class="form-control" id="inputPassword2" placeholder="请输入名称">
+                </div>
+
+            </form>
+            <form class="form-inline">
+                <div class="form-group mb-2">
+                    <label for="staticEmail2" class="sr-only">Email</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="商品价格">
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">0</label>
+                    <input v-model.numbel="newShop.value" type="text" class="form-control" id="inputPassword2" placeholder="0">
+                </div>
+                <button type="button" class="btn btn-primary mb-2" @click="add">增加</button>
+            </form>
+        </div>
+        <table class="table table-striped" >
+            <thead>
+            <tr >
+                <th v-for="item in th">{{item}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in td" :key="index"@click="select(item)" :class="{active:item.isSelected}">
+                <th scope="row"><input type="checkbox" ></th>
+                <td>{{item.name}}</td>
+                <td>{{item.value}}</td>
+                <td><button @click="delSingle(item.id)" class="btn btn-warning"><i class="iconfont icon-shanchu"></i></button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn btn-danger" @click="del">删除选中</button></td>
+                <td class="hh" colspan="3">总价：{{sum}}元</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:"#table",
+
+        data:{
+            input:'',
+            index:'',
+            th:["选择","商品名称","商品价格","删除"],
+            td:[{
+                id:'1',
+                name:"裤子",
+                value:123,
+                isSelected:false
+            },{
+                id:'2',
+                name:"裙子",
+                value:222,
+                isSelected:false
+            },{
+                id:'3',
+                name:"小楠",
+                value:1,
+                isSelected:false
+            }
+            ],
+            newShop:{
+                name:'',
+                value:0
+            },
+
+        },
+        methods:{
+            del(){
+                this.td.forEach(item =>{
+                    if(item.isSelected){
+                        this.delSingle(item.id);
+                    }
+                })
+            },
+            delSingle(id){
+                this.td = this.td.filter((val,index)=>{
+                    if(val.id!=id){
+                        return val;
+                    }
+                })
+            },
+            click(){
+                var arr1= this.td.filter((item)=>{
+                    if(item.name == this.input){
+                        return item
+                    }
+                })
+                console.log(arr1)
+                this.td=arr1
+                //this.show=false;
+            },
+            add(){
+                this.td.push(this.newShop);
+
+            },
+            delet(index){
+                this.index=index
+                this.td.splice(index,1)
+            },
+            select(obj){
+                obj.isSelected=!obj.isSelected
+            },
+
+        },
+        computed:{
+            sum(){
+                let thisSum = 0;
+                this.td.forEach(item => {
+                    if(item.isSelected){
+                        thisSum+=item.value;
+                    }
+                });
+                return thisSum;
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

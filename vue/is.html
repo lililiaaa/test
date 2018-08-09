@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div :is="change"></div>
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            change:'zu1'
+        },
+       components:{
+            zu1:{
+               template:'<h1>hhhh1</h1>'
+           },
+           zu2:{
+               template:'<h1>hhhh2</h1>'
+           },
+           zu3:{
+               template:'<h1>hhhh3</h1>'
+           }
+       }
+    })
+</script>
+</body>
+</html>

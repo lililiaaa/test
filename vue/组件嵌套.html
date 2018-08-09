@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+   <com1 :col1="msg" :col2="aaa" @add1="add" :num1="num"></com1>
+
+</div>
+<template id="com1">
+    <div>
+        <h1 >com1{{col1}}</h1>
+        <com2 :col2="col2" @add2="$emit('add1')" :num2="num1"></com2>
+    </div>
+</template>
+<template id="com2">
+    <div>
+        <h1>com2{{col2}}</h1>
+        <button @click="$emit('add2')">add</button>
+        {{num2}}
+    </div>
+
+</template>
+<script src="vue.js"></script>
+<script>
+
+    Vue.component("com1",{
+        template:`#com1`,
+        props:['col1',"col2",'num1']
+
+    })
+    Vue.component("com2",{
+        template:`#com2`,
+        props:['col2','num2']
+    })
+    new Vue({
+        el:'#app',
+        data:{
+            msg:"world",
+            aaa:"hhh",
+            num:0
+        },
+        methods:{
+            add(){
+                this.num++;
+            }
+        }
+    })
+</script>
+</body>
+</html>

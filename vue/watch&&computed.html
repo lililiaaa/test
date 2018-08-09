@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+{{frist}}+{{second}}={{sum}}
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            frist:'lilili',
+            second:'aaa',
+
+        },
+        watch:{
+            frist(val){
+                this.sum=val +''+this.second
+            },
+            second(val){
+                this.sum=this.frist+''+val
+            }
+        },
+        computed:{
+            sum(){
+                return this.frist+this.second;
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

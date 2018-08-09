@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_612764_g0kcxjistuo.css">
+    <style>
+        *{
+            margin: 0;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+        }
+        #app{
+            height: 100%;
+        }
+        .body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width:100%;
+            background: rgba(201, 201, 201, 0.5);
+            margin-top: -30px;
+        }
+        .box{
+            border: 2px solid black;
+            height: 300px;
+            width: 400px;
+            background: #eeeeee;
+
+        }
+        .header{
+            height: 20px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+        .header text{
+            float: left;
+        }
+        .header button{
+            float: right;
+        }
+        .header button{
+            background: transparent;
+            border: 0px;
+            color: white;
+
+        }
+        .content{
+            padding: 10px;
+        }
+        .slot div{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="denglu">登录</button>
+    <button  @click="zhuce">注册</button>
+    <alert  v-if="ifshow" @back="back">
+        <span slot="tap">登录</span>
+        <div slot="denglu" class="slot">
+            <div><span>用户名：</span><input type="text"></div>
+            <div><span>密码：</span><input type="password"></div>
+            <button>登录</button>
+        </div>
+    </alert>
+        <alert  v-if="ifhide" @back="back">
+            <span slot="tap">注册</span>
+        <div slot="denglu" class="slot">
+
+            <div><span>用户名：</span><input type="text"></div>
+            <div><span>密码：</span><input type="password"></div>
+            <div><span>邮箱：</span><input type="email"></div>
+            <button>注册</button>
+        </div>
+    </alert>
+</div>
+    <template id="alert">
+        <div class="body">
+        <div class="box">
+            <div class="header">
+                <slot name="tap"></slot>
+                <button @click="$emit('back')"><i class="iconfont icon-shanchu"></i></button>
+            </div>
+            <div class="content">
+                <slot id="zhuce" name="denglu"></slot>
+
+            </div>
+        </div>
+        </div>
+    </template>
+
+    <script src="vue.js"></script>
+    <script>
+        Vue.component("alert",{
+            template:"#alert"
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                ifshow:false,
+                ifhide:false
+            },
+            methods:{
+                denglu(){
+                    this.ifshow=true
+                    this.ifhide=false
+                },
+                back(){
+                    this.ifshow=false
+                    this.ifhide=false
+                },
+                zhuce(){
+                    this.ifshow=false
+                    this.ifhide=true
+                }
+            }
+        })
+    </script>
+</body>
+</html>

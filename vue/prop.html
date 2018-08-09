@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <tingting :msg='msg'></tingting>
+    <test :tmsg="msg"></test>
+</div>
+<script src="vue.js"></script>
+<script>
+    Vue.component("tingting",{
+        template:`<div><h1>hello {{msg}}</h1></div>`,
+        props:['msg']
+    })
+    new Vue({
+        el:'#app',
+        data:{
+            msg:"world"
+        },
+        components:{
+            'test':{
+                template:'<h1>aaaaa{{tmsg}}</h1>',
+                props:['tmsg']
+            }
+
+        }
+    })
+</script>
+</body>
+</html>
