@@ -1,15 +1,14 @@
 <template>
 
-    <v-touch  v-on:swipeleft="onSwipeLeft">向我扫描！</v-touch >
+
     <ul>
-        <li @click="change" v-for="(items,index) in dataList" :key='index+"ml"'>
-            <img :src="items.bg" alt="">
+        <li @click="change(index)" v-for="(items,index) in dataList" :key='index+"ml"'>
+            <img :src="items.src" alt="">
         </li>
     </ul>
 </template>
 <script>
-    var VueTouch = require('vue-touch')
-    Vue.use(VueTouch, {name: 'v-touch'})
+
     export default{
 
         created(){
@@ -31,7 +30,24 @@
                     .catch((error) => {
                         console.log(error);
                     });
+            },
+            change(i){
+                console.log(i)
+                this.$router.push({name:'imagetail',params:{id:i}})
             }
         }
     }
 </script>
+<style scoped>
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    img{
+        height: 3.2rem;
+        width: 3.2rem;
+    }
+    ul{
+        margin-bottom: 70px;
+    }
+</style>

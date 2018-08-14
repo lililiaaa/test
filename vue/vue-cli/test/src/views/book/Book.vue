@@ -6,13 +6,13 @@
             <swipe-item class="slide2"></swipe-item>
             <swipe-item class="slide3"></swipe-item>
         </swipe>
-        <div>
-            <ul>
-                <li v-for="(items,index) in dataList" :key='index+"dl"'>
-                    <img :src="" alt="">
-                </li>
-            </ul>
-        </div>
+        <!--<div>-->
+            <!--<ul>-->
+                <!--<li v-for="(items,index) in dataList" :key='index+"dl"'>-->
+                    <!--<img :src="" alt="">-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
     </div>
 </template>
 <style scoped>
@@ -56,18 +56,18 @@
             this.$emit("add","书籍",'book')
             this.getDate();
         },
-        methods: {
-            getData(){
-                axios.get(API_PROXY+'https://api.douban.com/v2/book/search?q=python&fields=id,title')
-                    .then( (response)=> {
-                        this.dataList=response.data.subjects
-                        console.log(response)
-
-                    })
-                    .catch((error)=> {
-                        console.log(error);
-                    });
-            }
-        }
+//        methods: {
+//            getData(){
+//                axios.get(API_PROXY+'https://api.douban.com/v2/book/:id')
+//                    .then( (response)=> {
+//                        this.dataList=response.data.subjects
+//                        console.log(response)
+//
+//                    })
+//                    .catch((error)=> {
+//                        console.log(error);
+//                    });
+//            }
+//        }
     }
 </script>
