@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="">
+    <meta charset="UTF-8">
+    <title>李振婷的注册页面</title>
+</head>
+<body>
+<div>
+    <h1>李振婷的注册页面</h1>
+    <form action="" method="post">
+
+        <fieldset>
+            <legend>个人信息</legend>
+            <table>
+                <tr>
+                    <th style="text-align: right"><label for="username">用户名</label></th>
+                    <td><input id="username" type="text" required></td>
+                </tr>
+                <tr>
+                    <th style="text-align: right"><label for="password">密码</label></th>
+                    <td><input id="password" type="password" required></td>
+                </tr>
+                <tr>
+                    <th style="text-align: right"><label for="gender">性别</label></th>
+                    <td><input name="gender" type="radio">男
+                        <input name="gender" type="radio">女</td>
+                </tr>
+                <tr>
+                    <th style="text-align: right"><label for="brithday">生日</label></th>
+                    <td><input id="brithday" type="date" required></td>
+                </tr>
+                <tr>
+                    <th style="text-align: right"><label for="province">籍贯</label></th>
+                    <td><input list="province"> <datalist id="province">
+                        <option>青海</option>
+                        <option>北京</option>
+                        <option>上海</option>
+                    </datalist></td>
+                </tr>
+                <tr>
+                    <th style="text-align: right"><label>学院</label></th>
+                    <td><select>
+                        <option>动资</option>
+                        <option selected>信息</option>
+                        <option>林学</option>
+                        <option>土木</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <th style="text-align: right"><label>专业</label></th>
+                    <td>
+                        <select>
+                            <option selected>软件工程</option>
+                            <option>计算机科学与技术</option>
+                            <option>信息管理</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right"><label>班级</label></th>
+                    <td><select>
+                        <option>一班</option>
+                        <option>二班</option>
+                        <option>三班</option>
+                        <option selected>四班</option>
+                    </select></td>
+                </tr>
+            </table>
+        </fieldset>
+        <br />
+
+        <fieldset>
+            <legend>其他信息</legend>
+            <table>
+                <tr>
+                    <th style="text-align: right"><label>喜欢的语言</label></th>
+                    <td>
+                        <ul>
+                            <li><label><input type="checkbox"  checked>html</label></li>
+                            <li><label><input type="checkbox">java</label></li>
+                            <li><label><input type="checkbox">c</label></li>
+                            <li><label><input type="checkbox">php</label></li>
+                            <li><label><input type="checkbox">js</label></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right"><label for="photo">照片</label></th>
+                    <td><input id="photo" type="file" accept=".jpg, .png"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <br />
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+    </form>
+</div>
+</body>
+</html>

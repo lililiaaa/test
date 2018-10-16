@@ -2,7 +2,7 @@
     <div>
 
         <ul>
-            <li v-for="(items,index) in dataList" :key='index+"dl"'>
+            <li v-for="(items,index) in dataList" :key='index+"dl"' @click="change(items.id)">
                 <img :src="items.images.small" alt="">
                 <div class="div">
                     <h2>{{items.title}}</h2>
@@ -55,6 +55,9 @@
                     .catch((error)=> {
                         console.log(error);
                     });
+            },
+            change(i){
+                this.$router.push({name:'moviedetail',params:{id:i}})
             }
 
         },
