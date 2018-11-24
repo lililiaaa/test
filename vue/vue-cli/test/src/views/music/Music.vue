@@ -11,7 +11,6 @@
 </template>
 <script>
     export default{
-
         created(){
             this.$emit("add","音乐",'music')
             this.getData()

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/test/ES6" libraries="{test/test/ES6/node_modules}" />
+    <file url="file://$PROJECT_DIR$/vue/vue-cli/hello-world" libraries="{test/vue/vue-cli/hello-world/node_modules}" />
+    <file url="file://$PROJECT_DIR$/vue/vue-cli/test" libraries="{test/vue/vue-cli/test/node_modules}" />
+    <file url="file://$PROJECT_DIR$/webpack-test" libraries="{test/webpack-test/node_modules}" />
+    <file url="PROJECT" libraries="{test/test/ES6/node_modules, test/vue/vue-cli/hello-world/node_modules, test/vue/vue-cli/test/node_modules, test/webpack-test/node_modules}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
+    <includedPredefinedLibrary name="WebGL" />
   </component>
 </project>
